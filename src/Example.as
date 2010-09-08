@@ -27,15 +27,15 @@ package
 		
 		private function init():void
 		{
-			ticker = new Ticker();
-			properties = generateProperties();
-			system = new ParticleSystem(properties);
+			system = new ParticleSystem(generateProperties());
 			addChild(system);
 			
 			data = new ParticleData(system);
 			addChild(data);
 			
-			ticker.add(system.iterate);			ticker.add(data.iterate);
+			ticker = new Ticker();
+			ticker.add(system.iterate);
+			ticker.add(data.iterate);
 		}
 		
 		private function generateProperties():ParticleProperties
